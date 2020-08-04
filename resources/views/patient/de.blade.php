@@ -21,6 +21,7 @@
                   <th>Type</th>
                   <th>Name</th>
                   <th>Number</th>
+                  <th></th>
                   <th>time</th>
                   <th>Status</th>
                   <th>Action</th>                 
@@ -44,8 +45,15 @@
                 <tr>
                   <td>{{$no++}}</td>
                   <td>{{ $ty }}</td>
-                  <td> {{$list->name.'-'.$list->age}}-{{($list->sex==1)?'Male':'Female'}} </td>
+                  <td><a href="{{url('profile/'.$list->id)}}"> {{$list->name.'-'.$list->age}}-{{($list->sex==1)?'Male':'Female'}}</a> </td>
                   <td>{{$list->phone}}</td>
+                   <td>
+
+                    <a href="{{url('profile',$list->id)}}" >
+                      <ion-icon name="ellipsis-horizontal-circle-outline">Bill</ion-icon>
+                    </a>
+                  </td>
+
                   <td>{{date('h:i:s',strtotime($list->created_at))}}</td>
 
                   <td>

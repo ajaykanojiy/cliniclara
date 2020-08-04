@@ -47,6 +47,7 @@
                   <td> {{$list->name.'-'.$list->age}}-{{($list->sex==1)?'Male':'Female'}} </td>
                   <td>{{$list->phone}}</td>
                   <td>{{date('h:i:s',strtotime($list->created_at))}}</td>
+                  <td><a href="{{url('profile',$list->id)}}" ><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>billung</a></td>
 
                   <td>
                   <select class="form-control change" name="status"  id="status_" onclick="//statuschange(this.id);">

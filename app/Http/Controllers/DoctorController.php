@@ -85,7 +85,10 @@ class DoctorController extends Controller
            $this->login_data($insert_id,$doc);
            $schedule="";
            session()->flash('success','Record save sucsessfully');
-           return view('admin.doctor.view',compact('insert_id','schedule'));
+           // return view('admin.doctor.view',compact('insert_id','schedule'));
+          return redirect()->route('doctor.edit', [$insert_id]);
+          
+
         }
 
     }

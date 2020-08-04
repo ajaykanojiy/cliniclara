@@ -160,16 +160,22 @@ class LoginCreateController extends Controller
       if ($row > '0') {
             $lo=$row->log_id;
             // print_r($lo);die;
-             if($row->type == 3){
+         if($row->type == 3){
                $res=DB::table('doctors')->find($lo);
                
+           }
+                
+            elseif($row->type == 4){
+               $res=DB::table('employee')->find($lo);
+               
+           }
+     
+     
+         else{
+                    
+           $res= $row;
+           
          }
-         // else{
-         //   $this->db->where('id',$row->log_id);
-         //   $res= $this->db->get('employee')->row();
-         //   // print_r($res);die;
-         //    // echo 'emp';die;
-         // }
         
             // print_r($res);die;
          
@@ -183,17 +189,13 @@ class LoginCreateController extends Controller
          $request->session()->put('sess',$data);
          return  redirect('dash');
         
-        } else{
+        }
+         else
+         {
             return redirect('log_form')->with('success','Invalid Email and/or password.');
-        }
+          }
        
-          // dd($users); 
-        
-
-        }
- 
-        // dd($id);
-        
-
+         
+  }
     
 }

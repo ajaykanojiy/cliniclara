@@ -149,57 +149,57 @@
                 <label>Add Schedule</label>
                  <div class="row">
                    
-                    <div class="col-md-4" style="margin-top: 0;">
+                    <div class="col-md-6" style="margin-top: 0;">
                         <!-- checkbox -->
                         <!-- <div class="form-group clearfix"> -->
                        
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary" class="" value="" >
+                           All <input type="checkbox" name="days[]" id="checkboxPrimary" class="" value="" >
                             <label for="checkboxPrimary">
                             </label>
                           </div>
 
                             <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary1" class="days" value="1">
+                            <input type="checkbox" name="days[]" id="checkboxPrimary1" class="days" value="1">Mon
                             <label for="checkboxPrimary1">
                             </label>
                           </div>
 
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary2" class="days" value="2">
+                            <input type="checkbox" name="days[]" id="checkboxPrimary2" class="days" value="2">Tus
                             <label for="checkboxPrimary2">
                             </label>
                           </div>
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary3" class="days" value="3" >
+                            <input type="checkbox" name="days[]" id="checkboxPrimary3" class="days" value="3" >Wed
                             <label for="checkboxPrimary3">
                             
                             </label>
                           </div>
 
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary4" class="days" value="4" >
+                            <input type="checkbox" name="days[]" id="checkboxPrimary4" class="days" value="4" >Thu
                             <label for="checkboxPrimary4">
                             
                             </label>
                           </div>
 
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary5" value="5" >
+                            <input type="checkbox" name="days[]" id="checkboxPrimary5" value="5" >Fri
                             <label for="checkboxPrimary5">
                             
                             </label>
                           </div>
 
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary6" class="days" value="6" >
+                            <input type="checkbox" name="days[]" id="checkboxPrimary6" class="days" value="6" >Sat
                             <label for="checkboxPrimary6">
                           
                             </label>
                           </div>
 
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="days[]" id="checkboxPrimary7" class="days" value="7" >
+                            <input type="checkbox" name="days[]" id="checkboxPrimary7" class="days" value="7" >Sun
                             <label for="checkboxPrimary7">
                             
                             </label>
@@ -236,7 +236,7 @@
 
                     
                     <div class="" style="margin-bottom: -px; margin-top: px;">
-                      <input type="text" name="doc_id" id="doc_id" value="{{$doc_id}}">
+                      <input type="hidden" name="doc_id" id="doc_id" value="{{$doc_id}}">
                       <input type="hidden" name="schedule_id" id="schedule_id">
                   <button type="button" class="btn btn-primary" id="" onclick="createPost()">Submit</button>
                    <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
@@ -266,8 +266,17 @@
                 <tbody>
                   @if($schedule)
                   @foreach($schedule as $schedule)
+                    <?php $d=explode(',', $schedule->days);
+                         // print_r($d);
+                     ?>
+
                 <tr id="row_{{$schedule->id}}">
-                  <td>{{$schedule->days}}</td>
+                  <td>@php 
+                    print_r($d) 
+
+                   @endphp
+
+                </td>
                   <td> {{$schedule->from_time}} </td>
                   <td>{{$schedule->to_time}}</td>
                 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/comman/master1');
+    return view('comman/master1');
 });
 
 
@@ -30,7 +30,7 @@ Route::POST('login','LoginCreateController@admin_login');
 Route::group(['middleware'=>['custumauth']],function(){
 // Route::view('dash','admin.comman.section');
 	Route::get('/dash', function () {
-    return view('admin/comman/dash');
+    return view('comman/dash');
 });
 
 
@@ -47,6 +47,7 @@ Route::group(['middleware'=>['custumauth']],function(){
 	Route::DELETE('vital_del/{id}','ServiceController@vital_del');
 
 	Route::view('de','d');
+	Route::view('sat','st');
 
 
 	Route::resource('pres','PrescriptionController');
@@ -81,4 +82,15 @@ Route::group(['middleware'=>['custumauth']],function(){
 
 	Route::resource('patient','PatientController');
 	Route::POST('change_status','PatientController@change_status');
+	Route::get('profile/{id}','PatientController@profile');
+	Route::get('get_amount','PServiceController@get_amount');
+	Route::resource('p_services','PServiceController');
+	Route::resource('payments','PaymentController');
+
+	
+
+	Route::POST('bill','PatientController@bill');
+	Route::POST('ps_status_pay','PatientController@ps_status_pay');
+	Route::POST('viewbi/{id}','PatientController@viewbills_get');
+	Route::DELETE('deletebi/{id}','PatientController@delete_bill');
 });
